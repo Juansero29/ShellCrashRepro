@@ -1,12 +1,14 @@
-﻿namespace ShellCrashRepro;
+﻿using ShellCrashRepro.ViewModels;
+
+namespace ShellCrashRepro;
 
 public partial class App : Application
 {
-	public App()
+	public App(AppShellVM appShellVM)
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
+		MainPage = new AppShell(appShellVM);
 	}
 }
 

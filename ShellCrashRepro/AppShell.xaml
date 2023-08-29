@@ -4,11 +4,36 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ShellCrashRepro"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewModels="clr-namespace:ShellCrashRepro.ViewModels"
+    x:DataType="viewModels:AppShellVM"
     Shell.FlyoutBehavior="Disabled">
 
+        <Shell.Behaviors>
+        <toolkit:EventToCommandBehavior
+            Command="{Binding LoadCommandAsync}"
+            EventName="Appearing" />
+    </Shell.Behaviors>
+
+
     <ShellContent
-        Title="Home"
+        Title="Main Page"
+        BindingContext="{Binding MainPageViewModel}"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+
+    <TabBar>
+        <ShellContent
+            Title="Page One"
+            BindingContext="{Binding PageOneViewModel}"
+            ContentTemplate="{DataTemplate local:PageOne}"
+            Route="PageOne" />
+        <ShellContent
+            Title="Page Two"
+            BindingContext="{Binding PageTwoViewModel}"
+            ContentTemplate="{DataTemplate local:PageTwo}"
+            Route="PageTwo" />
+    </TabBar>
+
 </Shell>
 

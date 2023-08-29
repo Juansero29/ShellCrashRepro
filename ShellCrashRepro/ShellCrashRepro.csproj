@@ -57,8 +57,10 @@
 	</ItemGroup>
 	<ItemGroup>
 		<None Remove="Framework\" />
+		<None Remove="ViewModels\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Framework\" />
+		<Folder Include="ViewModels\" />
 	</ItemGroup>
 </Project>
